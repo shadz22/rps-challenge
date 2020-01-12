@@ -1,10 +1,22 @@
 require 'spec_helper'
 
 feature 'Play game' do
-  scenario 'should see shape choices' do
-    enter_name_and_play
-    expect(page).to have_content "Rock"
-    expect(page).to have_content "Paper"
-    expect(page).to have_content "Scissors"
+
+  before do  
+    visit '/'
+    fill_in :player_name, with: "Shadi"
+    click_button "Submit"
   end
+
+  scenario 'player should see shape options' do
+    expect(page).to have_button "Rock"
+    expect(page).to have_button "Paper"
+    expect(page).to have_button "Scissors"
+  end
+
+  scenario 'player chooses shape option' do
+    click_button "Rock"
+    expect(page).to have_content "You have chosen Rock"
+  end
+  
 end

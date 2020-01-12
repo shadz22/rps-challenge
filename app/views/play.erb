@@ -1,8 +1,10 @@
 <h1 align="center"> Hello <%= @player_name %>! </h1>
 
 <h2 align="center"> Choose one of the following options: </h2>
-<ul>
-<li>Rock</li>
-<li>Paper</li>
-<li>Scissors</li>
-</ul>
+<form action="/play" method="POST" align="center">
+<input type="submit" name="player_shape" value="Rock">
+<input type="submit" name="player_shape" value="Paper">
+<input type="submit" name="player_shape" value="Scissors">
+</form>
+
+<p align="center"> You have chosen <%= @player_shape %>. </p> 
